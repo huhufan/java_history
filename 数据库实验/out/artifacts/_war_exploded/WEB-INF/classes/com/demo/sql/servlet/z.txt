@@ -1,0 +1,372 @@
+/*
+ Navicat MySQL Data Transfer
+
+ Source Server         : localhost_3306
+ Source Server Type    : MySQL
+ Source Server Version : 80012
+ Source Host           : localhost:3306
+ Source Schema         : dy
+
+ Target Server Type    : MySQL
+ Target Server Version : 80012
+ File Encoding         : 65001
+
+ Date: 01/01/2019 00:47:41
+*/
+
+create database dy;
+use dy
+
+-- ----------------------------
+-- Table structure for bk
+-- ----------------------------
+DROP TABLE IF EXISTS `bk`;
+CREATE TABLE `bk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `bk_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+);
+
+-- ----------------------------
+-- Records of bk
+-- ----------------------------
+INSERT INTO `bk` VALUES (1, '游戏');
+INSERT INTO `bk` VALUES (2, '颜值');
+INSERT INTO `bk` VALUES (3, '户外');
+INSERT INTO `bk` VALUES (4, '体育');
+INSERT INTO `bk` VALUES (5, '科技');
+
+-- ----------------------------
+-- Table structure for bk_zbk
+-- ----------------------------
+DROP TABLE IF EXISTS `bk_zbk`;
+CREATE TABLE `bk_zbk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `zbk_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `bk_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ;
+
+-- ----------------------------
+-- Records of bk_zbk
+-- ----------------------------
+INSERT INTO `bk_zbk` VALUES (1, '1', '1');
+INSERT INTO `bk_zbk` VALUES (2, '2', '1');
+INSERT INTO `bk_zbk` VALUES (3, '3', '1');
+INSERT INTO `bk_zbk` VALUES (4, '4', '2');
+INSERT INTO `bk_zbk` VALUES (5, '5', '2');
+INSERT INTO `bk_zbk` VALUES (6, '6', '2');
+INSERT INTO `bk_zbk` VALUES (7, '7', '3');
+INSERT INTO `bk_zbk` VALUES (8, '8', '3');
+INSERT INTO `bk_zbk` VALUES (9, '9', '3');
+INSERT INTO `bk_zbk` VALUES (10, '10', '4');
+INSERT INTO `bk_zbk` VALUES (11, '11', '4');
+INSERT INTO `bk_zbk` VALUES (12, '12', '4');
+INSERT INTO `bk_zbk` VALUES (13, '13', '4');
+INSERT INTO `bk_zbk` VALUES (14, '14', '5');
+INSERT INTO `bk_zbk` VALUES (15, '15', '5');
+INSERT INTO `bk_zbk` VALUES (16, '16', '5');
+INSERT INTO `bk_zbk` VALUES (17, '17', '5');
+
+-- ----------------------------
+-- Table structure for dy
+-- ----------------------------
+DROP TABLE IF EXISTS `dy`;
+CREATE TABLE `dy`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `yh_id` bigint(20) NOT NULL,
+  `zb_id` bigint(20) NOT NULL,
+  `dy_time` date NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ;
+
+-- ----------------------------
+-- Records of dy
+-- ----------------------------
+INSERT INTO `dy` VALUES (25, 3, 2, '2018-12-12');
+INSERT INTO `dy` VALUES (27, 3, 41, '2018-12-12');
+INSERT INTO `dy` VALUES (28, 7, 2, '2018-12-12');
+INSERT INTO `dy` VALUES (32, 7, 6, '2018-12-13');
+INSERT INTO `dy` VALUES (33, 7, 5, '2018-12-13');
+INSERT INTO `dy` VALUES (34, 9, 1, '2018-12-31');
+
+-- ----------------------------
+-- Table structure for fk
+-- ----------------------------
+DROP TABLE IF EXISTS `fk`;
+CREATE TABLE `fk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `content` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `fk_time` date NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+);
+
+-- ----------------------------
+-- Records of fk
+-- ----------------------------
+INSERT INTO `fk` VALUES (1, '形象LOW', '不好看', '2018-11-29');
+INSERT INTO `fk` VALUES (7, '21321', '23132', '2018-12-13');
+
+-- ----------------------------
+-- Table structure for lw
+-- ----------------------------
+DROP TABLE IF EXISTS `lw`;
+CREATE TABLE `lw`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `zb_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `money` int(11) NULL DEFAULT 0,
+  `lw_time` date NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+);
+
+-- ----------------------------
+-- Records of lw
+-- ----------------------------
+INSERT INTO `lw` VALUES (1, 5, 1, 1, '2018-12-11');
+INSERT INTO `lw` VALUES (2, 1, 2, 10, '2018-12-11');
+INSERT INTO `lw` VALUES (3, 1, 1, 100, '2018-12-11');
+INSERT INTO `lw` VALUES (4, 1, 1, 20, '2018-12-11');
+INSERT INTO `lw` VALUES (5, 5, 1, 8, '2018-12-11');
+INSERT INTO `lw` VALUES (6, 4, 1, 8, '2018-12-11');
+INSERT INTO `lw` VALUES (7, 3, 1, 9, '2018-12-11');
+INSERT INTO `lw` VALUES (8, 2, 1, 77, '2018-12-11');
+INSERT INTO `lw` VALUES (9, 1, 2, 999, '2018-12-12');
+INSERT INTO `lw` VALUES (10, 2, 2, 452, '2018-12-12');
+INSERT INTO `lw` VALUES (11, 41, 3, 1, '2018-12-12');
+INSERT INTO `lw` VALUES (12, 1, 9, 4, '2018-12-13');
+
+-- ----------------------------
+-- Table structure for yh
+-- ----------------------------
+DROP TABLE IF EXISTS `yh`;
+CREATE TABLE `yh`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `usersign` int(11) NOT NULL COMMENT '1管理员 2普通用户',
+  `sex` enum('男','女') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '男',
+  `emial` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `logion_time` date NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+);
+
+-- ----------------------------
+-- Records of yh
+-- ----------------------------
+INSERT INTO `yh` VALUES (1, '张卓然', '1', 1, '男', '123@qq.com', '2018-12-10');
+INSERT INTO `yh` VALUES (2, '柴子祺', '1', 1, '男', '121@qq.com', '2018-12-12');
+INSERT INTO `yh` VALUES (3, '樊虎虎', '1', 1, '男', '123@qq.com', '2018-12-12');
+INSERT INTO `yh` VALUES (4, '梁豪杰', '1', 2, '男', '123@qq.com', '2018-12-06');
+INSERT INTO `yh` VALUES (6, '尼古拉斯赵四', '1', 2, '男', '123@qq.com', '2018-11-28');
+INSERT INTO `yh` VALUES (8, '222', '2', 1, '男', '8686464', '2018-12-12');
+INSERT INTO `yh` VALUES (9, '111', '1', 2, '男', '1', '2018-12-13');
+
+-- ----------------------------
+-- Table structure for yh_fk
+-- ----------------------------
+DROP TABLE IF EXISTS `yh_fk`;
+CREATE TABLE `yh_fk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `fk_id` bigint(20) NOT NULL,
+  `yh_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ;
+
+-- ----------------------------
+-- Records of yh_fk
+-- ----------------------------
+INSERT INTO `yh_fk` VALUES (1, 1, 1);
+INSERT INTO `yh_fk` VALUES (2, 6, 2);
+INSERT INTO `yh_fk` VALUES (3, 7, 7);
+
+-- ----------------------------
+-- Table structure for zb
+-- ----------------------------
+DROP TABLE IF EXISTS `zb`;
+CREATE TABLE `zb`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `title` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `password` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `sex` enum('男','女') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '男',
+  `emial` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `room_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL,
+  `zb_sign` bigint(20) NULL DEFAULT 0,
+  `logion_time` date NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ;
+
+-- ----------------------------
+-- Records of zb
+-- ----------------------------
+INSERT INTO `zb` VALUES (1, '不求人', '不求人1v亿', '123', '男', 'eeee.@qq.com', 'https://www.huya.com/buqiuren', 1, '2018-12-10');
+INSERT INTO `zb` VALUES (2, '张卓然', '我特别屌', '12364', '女', '3333@qq.com', 'https://www.huya.com/kaerlol', 1, '2018-12-10');
+INSERT INTO `zb` VALUES (5, '柴子祺', '我最屌', '321', '男', '123@qq.com', 'https://www.huya.com/saonan', 1, '2018-12-11');
+INSERT INTO `zb` VALUES (6, '骚男', '中单派克已研发 大号', '123', '男', '82542275@qq.com', 'https://www.huya.com/saonan', 0, '2018-12-05');
+INSERT INTO `zb` VALUES (7, '青蛙', '今天双排冲冲冲！输一把100', '123', '男', '82542275@qq.com', 'https://www.huya.com/qingwa666', 0, '2018-12-04');
+INSERT INTO `zb` VALUES (8, '小七', '快乐狮子狗落地亲亲教学', '123', '男', '82542275@qq.com', 'https://www.huya.com/11233379', 1, '2018-12-03');
+INSERT INTO `zb` VALUES (9, '朗廷', '有我在你们不是光棍', '123', '男', '82542275@qq.com', 'https://www.huya.com/317532', 0, '2018-12-02');
+INSERT INTO `zb` VALUES (11, '迷八', '千分王者全能中单教学钻3虐泉屠杀', '123', '男', '82542275@qq.com', 'https://www.huya.com/11264619', 0, '2018-12-06');
+INSERT INTO `zb` VALUES (12, '古手羽', '有两天结算，上个前十不过分', '123', '男', '82542275@qq.com', 'https://www.huya.com/gushouyu', 0, '2018-11-30');
+INSERT INTO `zb` VALUES (13, '蛮王', '王 能抗住我三刀的只有真眼', '123', '男', '82542275@qq.com', 'https://www.huya.com/bashen', 1, '2018-11-29');
+INSERT INTO `zb` VALUES (14, '小鹿', '福利19:00送手机与现金红包', '123', '男', '82542275@qq.com', 'https://www.huya.com/nvwanglulu', 0, '2018-11-28');
+INSERT INTO `zb` VALUES (15, '老鱼德莱文', '五万场的老年德莱文:雷瑟守备走起', '123', '男', '82542275@qq.com', 'https://www.huya.com/10455734', 0, '2018-05-16');
+INSERT INTO `zb` VALUES (16, '完美', '完美自己上阵，没素材', '123', '男', '82542275@qq.com', 'https://www.huya.com/wanmei', 0, '2018-09-27');
+INSERT INTO `zb` VALUES (17, '巅峰集锦', '五杀、四杀巅峰集锦，燃爆了', '123', '男', '82542275@qq.com', 'https://www.huya.com/16793320', 0, '2018-11-29');
+INSERT INTO `zb` VALUES (18, '彩旗卡特', '最后一天上韩服王者 没上吊带白色性感', '123', '男', '82542275@qq.com', 'https://www.huya.com/924898', 0, '2018-11-21');
+INSERT INTO `zb` VALUES (19, '谷谷', '细节讲解 天秀1打4 值得骨励', '123', '男', '82542275@qq.com', 'https://www.huya.com/808707', 0, '2018-11-14');
+INSERT INTO `zb` VALUES (20, '卡宝子', '4单身狗报复社会每队只杀一', '123', '男', '82542275@qq.com', 'https://www.huya.com/baby25', 0, '2018-11-28');
+INSERT INTO `zb` VALUES (21, '难言', '单身狗约陪玩小姐姐，清空购物', '123', '男', '82542275@qq.com', 'https://www.huya.com/nanyanx', 0, '2018-11-13');
+INSERT INTO `zb` VALUES (22, '皇冠', '皇冠1V4 Tdy助你告别', '123', '男', '82542275@qq.com', 'https://www.huya.com/14428942', 0, '2018-11-07');
+INSERT INTO `zb` VALUES (23, 'DK冬季', '双赛季榜一.1v4屠杀上王', '123', '男', '82542275@qq.com', 'https://www.huya.com/dongji', 0, '2018-11-23');
+INSERT INTO `zb` VALUES (24, '童晓赞', '皇冠1V4 陀螺仪无后座压', '123', '男', '82542275@qq.com', 'https://www.huya.com/10125683', 0, '2018-05-25');
+INSERT INTO `zb` VALUES (25, '教练', '技术型步枪全能压枪教练', '123', '男', '82542275@qq.com', 'https://www.huya.com/725982', 0, '2018-07-25');
+INSERT INTO `zb` VALUES (26, '上好佳', '观众指定英雄SOLO 输送皮肤', '123', '男', '82542275@qq.com', 'https://www.huya.com/942020', 0, '2018-03-29');
+INSERT INTO `zb` VALUES (27, '德古拉', '史诗版加强王昭君竟然可以这样', '123', '男', '82542275@qq.com', 'https://www.huya.com/dracula', 0, '2019-08-21');
+INSERT INTO `zb` VALUES (28, '哈迪斯', '100胜率李白巅峰赛新打', '123', '男', '82542275@qq.com', 'https://www.huya.com/haddis', 0, '2018-11-13');
+INSERT INTO `zb` VALUES (29, '小超', '国服虞姬呀6点帮清购物车', '123', '男', '82542275@qq.com', 'https://www.huya.com/chaojie', 0, '2018-05-31');
+INSERT INTO `zb` VALUES (30, '大锤', '大锤：一骑当先一刀999', '123', '男', '82542275@qq.com', 'https://www.huya.com/107222', 0, '2018-04-27');
+INSERT INTO `zb` VALUES (31, '三辊', '莽猴-四件套巅峰赛1800', '123', '男', '82542275@qq.com', 'uya.com/housangun', 0, '2018-12-10');
+INSERT INTO `zb` VALUES (32, '小月亮', '8点抽一个1888任意', '123', '男', '82542275@qq.com', 'https://www.huya.com/923160', 0, '2018-10-04');
+INSERT INTO `zb` VALUES (33, '画心', '剑皇团点灯', '123', '男', '82542275@qq.com', 'https://www.huya.com/huaxinlaoyi', 0, '2018-11-14');
+INSERT INTO `zb` VALUES (34, '张叨叨', '原创歌手萌新', '123', '男', '82542275@qq.com', 'https://www.huya.com/16204772', 0, '2018-12-04');
+INSERT INTO `zb` VALUES (35, '激萌小青蛙', '听说有人想解我带子？', '123', '男', '82542275@qq.com', 'https://www.huya.com/915275', 0, '2018-12-01');
+INSERT INTO `zb` VALUES (36, '季乐乐', '住在上海的河南', '123', '男', '82542275@qq.com', 'https://www.huya.com/13949793', 0, '2018-12-07');
+INSERT INTO `zb` VALUES (37, '韩林', '双11，我们也来个打折活动', '123', '男', '82542275@qq.com', 'https://www.huya.com/16385881', 0, '2018-12-07');
+INSERT INTO `zb` VALUES (38, '话社', '新人主播光棍节找个男盆', '123', '男', '82542275@qq.com', 'https://www.huya.com/16921393', 0, '2018-11-22');
+INSERT INTO `zb` VALUES (39, '斯斯', '斯斯	新主播，了解', '123', '男', '82542275@qq.com', 'https://www.huya.com/sisi521', 0, '2018-12-01');
+INSERT INTO `zb` VALUES (40, '陈十六', '野性的跳舞机', '123', '男', '82542275@qq.com', 'https://www.huya.com/16864194', 0, '2018-12-10');
+INSERT INTO `zb` VALUES (41, '米晓丽', '生活虽苦 可我很甜', '123', '男', '82542275@qq.com', 'https://www.huya.com/14151156', 0, '2018-12-11');
+INSERT INTO `zb` VALUES (42, '奈斯', '送你情歌两三首', '123', '男', '82542275@qq.com', 'https://www.huya.com/16745401', 0, '2018-12-03');
+INSERT INTO `zb` VALUES (43, '星海怕怕', '卡欢迎来到我的直播间', '123', '男', '82542275@qq.com', 'https://www.huya.com/642509', 0, '2018-12-10');
+INSERT INTO `zb` VALUES (44, '林多利', '你对我好，我心里都知', '123', '男', '82542275@qq.com', 'https://www.huya.com/15888960', 0, '2018-12-06');
+INSERT INTO `zb` VALUES (45, 'QZ蹦得', '一起组队过节', '123', '男', '82542275@qq.com', 'https://www.huya.com/zme1028', 0, '2018-12-02');
+INSERT INTO `zb` VALUES (46, '郑安志', '愿你听不懂歌里的故', '123', '男', '82542275@qq.com', 'https://www.huya.com/wulisheshe', 0, '2018-11-29');
+INSERT INTO `zb` VALUES (47, '小里约', '面条小能手上线', '123', '男', '82542275@qq.com', 'https://www.huya.com/16160289', 0, '2018-12-08');
+INSERT INTO `zb` VALUES (48, '小依依', '我的小幸运你来了', '123', '男', '82542275@qq.com', 'https://www.huya.com/16856584', 0, '2018-11-27');
+INSERT INTO `zb` VALUES (49, '樱乃空', '次元优等声永恒至尊！影宝来了', '123', '男', '82542275@qq.com', 'https://www.huya.com/16089729', 0, '2018-12-01');
+INSERT INTO `zb` VALUES (50, '正蘑菇', '次元优等声斗罗大陆111', '123', '男', '82542275@qq.com', 'https://www.huya.com/859637', 0, '2018-11-29');
+INSERT INTO `zb` VALUES (51, '米线尔', '周末', '123', '男', '82542275@qq.com', 'https://www.huya.com/g/2633', 0, '2018-12-04');
+INSERT INTO `zb` VALUES (52, '红音摩卡', '次元优等声付费斗', '123', '男', '82542275@qq.com', 'https://www.huya.com/75radio', 0, '2018-12-09');
+INSERT INTO `zb` VALUES (53, '懒喵酱', '是不是可爱的小萝莉', '123', '男', '82542275@qq.com', 'https://www.huya.com/16473720', 0, '2018-12-08');
+INSERT INTO `zb` VALUES (54, '视觉体面', '理性消费首先来我这消费一波哈哈哈', '123', '男', '82542275@qq.com', 'https://www.huya.com/msjt89999', 0, '2018-11-26');
+INSERT INTO `zb` VALUES (55, '浮生绘梦', '有声读物赛小葵推理敲可怕~求', '123', '男', '82542275@qq.com', 'https://www.huya.com/lolita99', 0, '2018-11-29');
+INSERT INTO `zb` VALUES (56, '萝莉卡尔', '广州萝莉唱见：我今天是一个不会笑', '123', '男', '82542275@qq.com', 'https://www.huya.com/xiaotian520', 0, '2018-11-30');
+INSERT INTO `zb` VALUES (57, '小一萌', '墨尔本觅', '123', '男', '82542275@qq.com', 'https://www.huya.com/913108', 0, '2018-11-27');
+INSERT INTO `zb` VALUES (58, '厨小二', '红烧肉 干烧鳝鱼 香煎土豆饼 蘑菇炒', '123', '男', '82542275@qq.com', 'https://www.huya.com/822658', 0, '2018-11-29');
+INSERT INTO `zb` VALUES (59, '主虾哥', '虾哥美食日', '123', '男', '82542275@qq.com', 'https://www.huya.com/lihaitao35', 0, '2018-11-30');
+INSERT INTO `zb` VALUES (60, '农家厨子', '卤三宝 麻辣火锅鱼片 熬火锅底', '123', '男', '82542275@qq.com', 'https://www.huya.com/925558', 0, '2018-11-05');
+INSERT INTO `zb` VALUES (61, '樊虎虎', '123', '1', '男', '123@qq.com', '1', 0, '2018-12-12');
+INSERT INTO `zb` VALUES (62, '111', '6153', '1', '男', '123@qq.com', '132', 0, '2018-12-13');
+
+-- ----------------------------
+-- Table structure for zb_zbk
+-- ----------------------------
+DROP TABLE IF EXISTS `zb_zbk`;
+CREATE TABLE `zb_zbk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `zb_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `zbk_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 63   ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of zb_zbk
+-- ----------------------------
+INSERT INTO `zb_zbk` VALUES (1, '1', '1');
+INSERT INTO `zb_zbk` VALUES (2, '2', '1');
+INSERT INTO `zb_zbk` VALUES (3, '3', '1');
+INSERT INTO `zb_zbk` VALUES (4, '4', '1');
+INSERT INTO `zb_zbk` VALUES (5, '5', '1');
+INSERT INTO `zb_zbk` VALUES (6, '6', '1');
+INSERT INTO `zb_zbk` VALUES (7, '7', '1');
+INSERT INTO `zb_zbk` VALUES (8, '9', '1');
+INSERT INTO `zb_zbk` VALUES (9, '9', '1');
+INSERT INTO `zb_zbk` VALUES (10, '10', '2');
+INSERT INTO `zb_zbk` VALUES (11, '11', '2');
+INSERT INTO `zb_zbk` VALUES (12, '12', '2');
+INSERT INTO `zb_zbk` VALUES (13, '13', '2');
+INSERT INTO `zb_zbk` VALUES (14, '14', '2');
+INSERT INTO `zb_zbk` VALUES (15, '15', '2');
+INSERT INTO `zb_zbk` VALUES (16, '16', '2');
+INSERT INTO `zb_zbk` VALUES (17, '17', '2');
+INSERT INTO `zb_zbk` VALUES (18, '18', '2');
+INSERT INTO `zb_zbk` VALUES (19, '19', '2');
+INSERT INTO `zb_zbk` VALUES (20, '20', '2');
+INSERT INTO `zb_zbk` VALUES (21, '21', '3');
+INSERT INTO `zb_zbk` VALUES (22, '22', '3');
+INSERT INTO `zb_zbk` VALUES (23, '23', '3');
+INSERT INTO `zb_zbk` VALUES (24, '24', '3');
+INSERT INTO `zb_zbk` VALUES (25, '25', '3');
+INSERT INTO `zb_zbk` VALUES (26, '26', '3');
+INSERT INTO `zb_zbk` VALUES (27, '27', '3');
+INSERT INTO `zb_zbk` VALUES (28, '28', '3');
+INSERT INTO `zb_zbk` VALUES (29, '29', '3');
+INSERT INTO `zb_zbk` VALUES (30, '30', '3');
+INSERT INTO `zb_zbk` VALUES (31, '31', '4');
+INSERT INTO `zb_zbk` VALUES (32, '32', '4');
+INSERT INTO `zb_zbk` VALUES (33, '33', '4');
+INSERT INTO `zb_zbk` VALUES (34, '34', '4');
+INSERT INTO `zb_zbk` VALUES (35, '35', '4');
+INSERT INTO `zb_zbk` VALUES (36, '36', '4');
+INSERT INTO `zb_zbk` VALUES (37, '37', '4');
+INSERT INTO `zb_zbk` VALUES (38, '38', '4');
+INSERT INTO `zb_zbk` VALUES (39, '39', '4');
+INSERT INTO `zb_zbk` VALUES (40, '40', '4');
+INSERT INTO `zb_zbk` VALUES (41, '41', '5');
+INSERT INTO `zb_zbk` VALUES (42, '42', '5');
+INSERT INTO `zb_zbk` VALUES (43, '43', '5');
+INSERT INTO `zb_zbk` VALUES (44, '44', '5');
+INSERT INTO `zb_zbk` VALUES (45, '45', '5');
+INSERT INTO `zb_zbk` VALUES (46, '46', '5');
+INSERT INTO `zb_zbk` VALUES (47, '47', '5');
+INSERT INTO `zb_zbk` VALUES (48, '48', '5');
+INSERT INTO `zb_zbk` VALUES (49, '49', '5');
+INSERT INTO `zb_zbk` VALUES (50, '50', '5');
+INSERT INTO `zb_zbk` VALUES (51, '61', '16');
+INSERT INTO `zb_zbk` VALUES (52, '51', '6');
+INSERT INTO `zb_zbk` VALUES (53, '52', '6');
+INSERT INTO `zb_zbk` VALUES (54, '53', '6');
+INSERT INTO `zb_zbk` VALUES (55, '54', '6');
+INSERT INTO `zb_zbk` VALUES (56, '55', '6');
+INSERT INTO `zb_zbk` VALUES (57, '56', '6');
+INSERT INTO `zb_zbk` VALUES (58, '57', '6');
+INSERT INTO `zb_zbk` VALUES (59, '58', '6');
+INSERT INTO `zb_zbk` VALUES (60, '59', '6');
+INSERT INTO `zb_zbk` VALUES (61, '60', '6');
+INSERT INTO `zb_zbk` VALUES (62, '62', '17');
+
+-- ----------------------------
+-- Table structure for zbk
+-- ----------------------------
+DROP TABLE IF EXISTS `zbk`;
+CREATE TABLE `zbk`  (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `zbk_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+)  ;
+
+-- ----------------------------
+-- Records of zbk
+-- ----------------------------
+INSERT INTO `zbk` VALUES (1, '英雄联盟');
+INSERT INTO `zbk` VALUES (2, '刺激战场');
+INSERT INTO `zbk` VALUES (3, '王者荣耀');
+INSERT INTO `zbk` VALUES (4, '新人');
+INSERT INTO `zbk` VALUES (5, '星颜');
+INSERT INTO `zbk` VALUES (6, '活动');
+INSERT INTO `zbk` VALUES (7, '美食');
+INSERT INTO `zbk` VALUES (8, '冒险');
+INSERT INTO `zbk` VALUES (9, '购物');
+INSERT INTO `zbk` VALUES (10, '健身');
+INSERT INTO `zbk` VALUES (11, '比赛');
+INSERT INTO `zbk` VALUES (12, '足球');
+INSERT INTO `zbk` VALUES (13, '篮球');
+INSERT INTO `zbk` VALUES (14, '鱼教');
+INSERT INTO `zbk` VALUES (15, '科普');
+INSERT INTO `zbk` VALUES (16, '汽车');
+INSERT INTO `zbk` VALUES (17, '设计');
+
+SET FOREIGN_KEY_CHECKS = 1;

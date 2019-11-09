@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+
+
+    <!--&lt;!&ndash;配置bean&ndash;&gt;-->
+    <!--<bean id="service" class="com.spring.test.Service"></bean>-->
+
+    <!--&lt;!&ndash;配置切面的bean&ndash;&gt;-->
+    <!--<bean id="loggingAspect" class="com.spring.test.LoggingAspect"></bean>-->
+
+    <!--&lt;!&ndash;配置AOP&ndash;&gt;-->
+    <!--<aop:config>-->
+    <!--&lt;!&ndash;配置切点&ndash;&gt;-->
+    <!--<aop:pointcut id="pointcut" expression="execution(* com.spring.test.Service.doService())"></aop:pointcut>-->
+    <!--&lt;!&ndash;配置切面及通知&ndash;&gt;-->
+    <!--<aop:aspect ref="loggingAspect" order="2">-->
+    <!--<aop:before method="beforeAdvice" pointcut-ref="pointcut"></aop:before>-->
+    <!--<aop:after method="afterAdvice" pointcut-ref="pointcut"></aop:after>-->
+    <!--</aop:aspect>-->
+
+    <!--</aop:config>-->
+
+
+</beans>

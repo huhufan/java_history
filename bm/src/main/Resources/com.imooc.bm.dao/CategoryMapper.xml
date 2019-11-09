@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imooc.bm.dao.CategoryMapper">
+
+	<!-- 配置一个结果集映射 -->
+	<resultMap id="CategoryMap" type="Category">
+		<result column="id" property="id" javaType="int"></result>
+		<result column="name" property="name" javaType="String"></result>
+		<result column="create_time" property="createTime" javaType="Timestamp"></result>
+		<result column="update_time" property="updateTime" javaType="Timestamp"></result>
+	</resultMap>
+
+	<select id="getAll" resultType="Category">
+		select * from category
+	</select>
+
+	<select id="getCategory" resultType="Category">
+		select * from category when id = #{category_id}
+	</select>
+
+	<insert id="insert" parameterType="Category">
+		insert into category(name, create_time , update_time)
+		values(#{name} , #{createTime}, #{updateTime})
+	</insert>
+
+
+</mapper>

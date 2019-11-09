@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.middleware.Dao.DlDAO">
+
+    <insert id="insert" parameterType="com.example.middleware.entity.Dl">
+            insert into dl values(#{xm},#{pw})
+    </insert>
+
+    <delete id="delete" parameterType="String">
+             delete from dl where xm = #{xm};
+    </delete>
+
+    <update id="update" parameterType="com.example.middleware.entity.Dl">
+            update dl set xm = #{xm},pw = #{pw} where xm = #{xm}
+    </update>
+
+    <select id="selectAll" resultType="com.example.middleware.entity.Dl">
+           select * from dl
+    </select>
+
+    <select id="selectByXM"  parameterType="String" resultType="com.example.middleware.entity.Dl">
+           select * from dl where xm = #{xm} ;
+    </select>
+
+</mapper>
+

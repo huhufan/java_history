@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/dashboard.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
+<link href="/css/dashboard.css" rel="stylesheet">
+
+
+
+<div th:fragment="top"><nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" >
+    <a th:href="@{/}" class="navbar-brand col-sm-3 col-md-2 mr-0"><span style="text-align: center">物联网中间件</span></a>
+    <div class="dropdown"  >
+        <a  style="margin-right: 80px" class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"             th:text="${session.user.xm}"
+        >
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="z-index: 99" style="position: absolute;right: 0;top: 50px">
+            <a class="dropdown-item" href="#" th:href="@{loginOut}"> <button type="button" class="btn btn-outline-danger">退出登录</button>
+            </a>
+        </div>
+    </div>
+</nav>
+</div>
+
+<center>
+<table style="margin-top: 100px;width: 50%;text-align: center" class="table table-striped">
+    <thead>
+    <tr>
+        <th>地址</th>
+        <th>面积</th>
+        <th>价格</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+        <td>华著中城 精装全配三室两厅两卫一厨 价格</td>
+        <td>108</td>
+        <td>3700</td>
+    </tr>
+    <tr >
+        <td>白桦林居  三室精装  全配拎包入住   价格</td>
+        <td>188</td>
+        <td>3800</td>
+    </tr>
+    <tr >
+        <td>辛家庙临近小区玄武新城 两室全配拎包入住 价格</td>
+        <td>138</td>
+        <td>2500</td>
+    </tr>
+    <tr >
+        <td>曲江地铁旁 南湖畔 精装复式 部分配 价格</td>
+        <td>98</td>
+        <td>3330</td>
+    </tr>
+    <tr >
+        <td>长缨路口 两室出租 交通便利 低 价 价格</td>
+        <td>54</td>
+        <td>2110</td>
+    </tr>
+    <tr >
+        <td>西市北路西市佳园精装修开间家具家电齐全拎 价格</td>
+        <td>188</td>
+        <td>6600</td>
+    </tr>
+    <tr >
+        <td>大寨路 华洲城 铭城国际对面 中航华府精 价格</td>
+        <td>79</td>
+        <td>2100</td>
+    </tr>
+    <tr >
+        <td>万科高新华府 出租 家具家电齐全 环境卫 价格</td>
+        <td>98</td>
+        <td>3350</td>
+    </tr>
+    <tr >
+        <td>太白小区东区  精装两室  家电全配 价格</td>
+        <td>68</td>
+        <td>2100</td>
+    </tr>
+    <tr >
+        <td>西工大附小 裕昌阳城 精装两室 陪读 价格</td>
+        <td>63</td>
+        <td>2900</td>
+    </tr>
+    <tr >
+        <td>急租中海东郡好房型 精装修 即租即入住 价格</td>
+        <td>76</td>
+        <td>2530</td>
+    </tr>
+    <tr >
+        <td>万达旁 锦园君逸 两室全陪 拎包入住 看 价格</td>
+        <td>85</td>
+        <td>2530</td>
+    </tr>
+    <tr >
+        <td>大寨路.  黄 金嘉园 标准一室 家电齐 价格</td>
+        <td>97</td>
+        <td>2900</td>
+    </tr><tr ><tr >
+        <td>曲江华著中城 豪装复式 享受小别墅 中冶 价格</td>
+        <td>77</td>
+        <td>6330</td>
+    </tr>
+        <td>摩卡公寓 经典复式 温馨两居室 家具家电 价格</td>
+        <td>123</td>
+        <td>2800</td>
+    </tr><tr >
+        <td>高新路科技四路十字 枫林绿洲 精装 两室 价格</td>
+        <td>47</td>
+        <td>2200</td>
+    </tr><tr >
+        <td>电子城 电子正街 北山门   精装一室 价格</td>
+        <td>59</td>
+        <td>2280</td>
+    </tr>
+    </tbody>
+</table>
+</center>
+</body>
+</html>

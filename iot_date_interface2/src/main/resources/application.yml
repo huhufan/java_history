@@ -1,0 +1,15 @@
+server:
+  port: 8083
+
+
+spring:
+  datasource:
+    username: root
+    password: mysql1998
+    url: jdbc:mysql://119.23.106.49:3306/iot?useSSL=false&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml

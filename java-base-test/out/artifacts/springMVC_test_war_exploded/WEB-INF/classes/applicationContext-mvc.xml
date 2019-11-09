@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--配置自动扫描的包-->
+    <context:component-scan base-package="com.test.mvc"></context:component-scan>
+
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+    <!--配置试图解析器-->
+    <bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--文件上传   导入commons-fileupload-1.2.jar,commons-io-1.2.jar   -->
+    <bean  id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="102400"></property>
+    </bean>
+
+    <!--拦截器-->
+    <!-- 自定义的拦截器必须实现HandleInterceptor接口-->
+    <!--preHandle:业务处理之前被调用(若返回true,则继续调用后续的拦截器和目标方法，false,则直接return， postHandle:业务处理完请求，但是DispatcherServlet向客户端返回响应前被调用，afterCompletion:在DispatcherServlet完全处理完请求 后被调用-->
+    <mvc:interceptors>
+        <bean class="com.test.mvc.interceptor.MyFirstInterceptor"></bean>
+        <!--配置拦截器作用/不作用的路径-->
+        <mvc:interceptor>
+            <mvc:mapping path="/emp"/>
+            <bean class="com.test.mvc.interceptor.MySeconInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!--异常处理-->
+    <!--通过HandlerExceptionResolver处理程序的异常，包括Handler映射，数据绑定以及目标方法执行时发生的异常-->
+
+    <bean id="person" class="com.test.mvc.Entity.Person">
+        <constructor-arg index="0" value="1"></constructor-arg>
+        <constructor-arg index="1" value="huhu"></constructor-arg>
+    </bean>
+
+
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--在页面通过ex从请求域中获得异常信息-->
+        <property name="exceptionAttribute" value="ex"></property>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.Exception.ArrayIndexOutOfBoundsException"></prop>
+            </props>
+        </property>
+    </bean>
+</beans>

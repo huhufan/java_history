@@ -1,0 +1,6 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spring_mybatis">
+    <output-path>$PROJECT_DIR$/out/artifacts/spring_mybatis</output-path>
+    <root id="archive" name="spring_mybatis.war" />
+  </artifact>
+</component>

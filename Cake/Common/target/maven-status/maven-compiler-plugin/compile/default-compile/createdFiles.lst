@@ -1,0 +1,8 @@
+com\imooc\cake\entity\Cake.class
+com\imooc\cake\entity\Category.class
+com\imooc\cake\mapper\CategoryMapper.class
+com\imooc\cake\service\CategoryService.class
+com\imooc\cake\common\MyBatisUtils.class
+com\imooc\cake\mapper\CakeMapper.class
+com\imooc\cake\web\CharsetEncodingFilter.class
+com\imooc\cake\service\CakeService.class

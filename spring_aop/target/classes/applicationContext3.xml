@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customerDao" class="com.imooc.demo5.CustomerDao"></bean>
+    <bean id="studentDao" class="com.imooc.demo5.StudentDao"></bean>
+
+    <bean id="myBeforeAdvice" class="com.imooc.demo5.MyBeforeAdvice"></bean>
+    <bean id="myAroundAdvice" class="com.imooc.demo5.MyAroundAdvice"></bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="*Dao"></property>
+        <property name="interceptorNames" value="myBeforeAdvice"></property>
+    </bean>
+
+</beans>

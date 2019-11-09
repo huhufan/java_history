@@ -1,0 +1,17 @@
+server:
+  port: 8084
+
+
+
+spring:
+  datasource:
+    username: root
+    password: mysql1998
+    url: jdbc:mysql://119.23.106.49:3306/android_test?useSSL=false&amp;characterEncoding=utf
+    driver-class-name: com.mysql.jdbc.Driver
+
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+

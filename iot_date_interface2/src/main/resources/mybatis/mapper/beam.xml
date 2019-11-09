@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iot.iot_date_interface2.dao.BeamDao">
+    <select id="selectAll" resultType="com.iot.iot_date_interface2.entity.Beam">
+          select * from beam order by create_time desc Limit 100
+    </select>
+
+    <insert id="insert" parameterType="com.iot.iot_date_interface2.entity.Beam">
+        insert into beam values(#{beam},#{ak},#{create_time})
+    </insert>
+
+    <select id="selectByAK" parameterType="String" resultType="com.iot.iot_date_interface2.entity.Beam">
+        select * from beam where ak = #{ak} order by create_time desc Limit 100
+    </select>
+
+</mapper>

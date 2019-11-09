@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--UserService 的创建权交给了spring-->
+    <!--<bean id="UserService" class="com.imooc.ioc.demo1.UserServiceImpl">-->
+        <!--<property name="name" value="李四"/>-->
+    <!--</bean>-->
+
+    <!--Bean实例化的三种方式-->
+    <!--无参构造器的方式-->
+    <!--<bean id="bean1" class="com.imooc.ioc.demo2.Bean1"></bean>-->
+    <!--&lt;!&ndash;静态工厂的方式&ndash;&gt;-->
+    <!--<bean id="bean2" class="com.imooc.ioc.demo2.Bean2Factory" factory-method="createBean2"></bean>-->
+    <!--&lt;!&ndash;实例工厂的方式&ndash;&gt;-->
+    <!--<bean id="bean3Factory" class="com.imooc.ioc.demo2.Bean3Factory"></bean>-->
+    <!--<bean id="bean3" factory-bean="bean3Factory" factory-method="createBean3" ></bean>-->
+    <!--Bean的生命周期测试-->
+    <!--<bean id="man" class="com.imooc.ioc.demo3.Man" init-method="init" destroy-method="destory">-->
+        <!--<property name="name" value="王五"/>-->
+    <!--</bean>-->
+    <!--<bean class="com.imooc.ioc.demo3.MyBeanPostProcessor"></bean>-->
+    <!--<bean id="userDao" class="com.imooc.ioc.demo3.UserDaoImpl"></bean>-->
+    <!--通过Bean的构造方法的属性注入-->
+    <bean id="user" class="com.imooc.ioc.demo4.User">
+        <constructor-arg name="name" value="张三"></constructor-arg>
+        <constructor-arg name="age" value="12"></constructor-arg>
+    </bean>
+    <!--通过Bean的set方法的属性注入-->
+
+    <!--<bean id="person" class="com.imooc.ioc.demo4.Person">-->
+        <!--<property name="name" value="李四"></property>-->
+        <!--<property name="age"  value="78"></property>-->
+        <!--<property name="cat" ref="cat"></property>-->
+    <!--</bean>-->
+    <!--<bean id="cat" class="com.imooc.ioc.demo4.Cat">-->
+        <!--<property name="name" value="Ketty"></property>-->
+    <!--</bean>-->
+    <!--通过Bean的p名称空间的属性注入-->
+
+    <bean id="person" class="com.imooc.ioc.demo4.Person" p:name="李四" p:age="87" p:cat-ref="cat"></bean>
+    <bean id="cat" class="com.imooc.ioc.demo4.Cat" p:name="Ketty"></bean>
+
+    <!--通过Bean的SpEL的属性注入-->
+    <bean id="category" class="com.imooc.ioc.demo4.Category">
+        <property name="name" value="#{'服装'}"></property>
+    </bean>
+
+    <bean id="productInfo" class="com.imooc.ioc.demo4.ProductInfo"></bean>
+    <bean id="product" class="com.imooc.ioc.demo4.Product">
+        <property name="name" value="#{'男装'}"></property>
+        <property name="price" value="#{productInfo.getPrice()}"></property>
+        <property name="category" value="#{category}"></property>
+    </bean>
+
+    <!--集合的属性注入-->
+    <bean id="collectionBean" class="com.imooc.ioc.demo4.CollectionBean">
+        <property name="arrs">
+            <list>
+                <value>111</value>
+                <value>222</value>
+                <value>333</value>
+            </list>
+        </property>
+        <property name="list">
+            <list>
+                <value>444</value>
+                <value>555</value>
+                <value>666</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>777</value>
+                <value>888</value>
+                <value>999</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="a" value="1"></entry>
+                <entry key="b" value="2"></entry>
+                <entry key="c" value="3"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="1">aaaa</prop>
+                <prop key="2">bbbb</prop>
+                <prop key="3">cccc</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

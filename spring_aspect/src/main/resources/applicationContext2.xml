@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"> <!-- bean definitions here -->
+
+    <bean id="customer" class="com.imooc.aspectj.demo2.Customer"></bean>
+
+    <bean id="myAspectXML" class="com.imooc.aspectj.demo2.MyAspectJXML"></bean>
+    
+    
+    <aop:config>
+        <aop:pointcut id="pointcut1" expression="execution(* com.imooc.aspectj.demo2.Customer.save(..))"></aop:pointcut>
+        <aop:pointcut id="pointcut2" expression="execution(* com.imooc.aspectj.demo2.Customer.update(..))"></aop:pointcut>
+
+        <aop:aspect ref="myAspectXML">
+            <aop:before method="before" pointcut-ref="pointcut1"></aop:before>
+            <aop:around method="around" pointcut-ref="pointcut2"></aop:around>
+        </aop:aspect>
+
+    </aop:config>
+
+
+</beans>

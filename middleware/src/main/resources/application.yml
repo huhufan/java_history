@@ -1,0 +1,22 @@
+server:
+  port: 80
+
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/liangshan?useSSL=false&amp;characterEncoding=utf8
+
+    driver-class-name: com.mysql.jdbc.Driver
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+  jackson:
+    time-zone: GMT+8
+
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+

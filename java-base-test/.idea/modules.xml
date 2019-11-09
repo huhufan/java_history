@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/java-base-test.iml" filepath="$PROJECT_DIR$/java-base-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-socket/java-socket.iml" filepath="$PROJECT_DIR$/java-socket/java-socket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdbc-test/jdbc-test.iml" filepath="$PROJECT_DIR$/jdbc-test/jdbc-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/list_remove/list_remove.iml" filepath="$PROJECT_DIR$/list_remove/list_remove.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myBatis-test/myBatis-test.iml" filepath="$PROJECT_DIR$/myBatis-test/myBatis-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proxy-test/proxy-test.iml" filepath="$PROJECT_DIR$/proxy-test/proxy-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reflection/reflection.iml" filepath="$PROJECT_DIR$/reflection/reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/servlet_test/servlet_test.iml" filepath="$PROJECT_DIR$/servlet_test/servlet_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-test/spring-test.iml" filepath="$PROJECT_DIR$/spring-test/spring-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-tx-test/spring-tx-test.iml" filepath="$PROJECT_DIR$/spring-tx-test/spring-tx-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springMVC_test/springMVC_test.iml" filepath="$PROJECT_DIR$/springMVC_test/springMVC_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/streamAPI/streamAPI.iml" filepath="$PROJECT_DIR$/streamAPI/streamAPI.iml" />
+    </modules>
+  </component>
+</project>

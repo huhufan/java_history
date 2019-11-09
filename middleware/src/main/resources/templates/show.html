@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/popper.js/1.12.5/umd/popper.min.js"></script>
+<script src="/js/jquery-3.2.1.slim.min.js"></script>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/dashboard.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
+<link href="/css/dashboard.css" rel="stylesheet">
+
+
+
+<div th:fragment="top"><nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" >
+    <a th:href="@{/}" class="navbar-brand col-sm-3 col-md-2 mr-0"><span style="text-align: center">物联网中间件</span></a>
+    <div class="dropdown"  >
+        <a  style="margin-right: 80px" class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"             th:text="${session.user.xm}"
+        >
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="z-index: 99" style="position: absolute;right: 0;top: 50px">
+            <a class="dropdown-item" href="#" th:href="@{loginOut}"> <button type="button" class="btn btn-outline-danger">退出登录</button>
+            </a>
+        </div>
+    </div>
+</nav>
+</div>
+
+<center>
+<table style="margin-top: 100px;width: 50%;text-align: center" class="table table-striped">
+    <thead>
+    <tr>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dl:${dls}">
+        <td th:text="${dl.xm}"></td>
+        <td th:text="${dl.pw}"></td>
+        <td>
+            <a class="btn btn-sm btn-primary" th:href="@{/dl/toUpdate/}+${dl.xm}">编辑</a>
+            <a class="btn btn-sm btn-warning delete_btn" th:href="@{/dl/delete/}+${dl.xm}">删除</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</center>
+</body>
+</html>
